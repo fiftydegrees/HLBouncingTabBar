@@ -50,7 +50,6 @@ class HLBouncingTabBar: UITabBar, UITabBarControllerDelegate {
         
         itemArray.insert(item, atIndex: index)
         
-        updateCursorSize()
         updateCursorPositionAnimated(false)
     }
     
@@ -61,7 +60,6 @@ class HLBouncingTabBar: UITabBar, UITabBarControllerDelegate {
         
         itemArray.removeAtIndex(index)
         
-        updateCursorSize()
         updateCursorPositionAnimated(false)
     }
     
@@ -80,7 +78,6 @@ class HLBouncingTabBar: UITabBar, UITabBarControllerDelegate {
     
     func updateCursorSize() -> Void {
         cursorView.frame = CGRectMake(CGRectGetMinX(cursorView.frame), CGRectGetMinY(cursorView.frame), CGRectGetWidth(self.frame) / CGFloat(itemArray.count), CGRectGetHeight(self.frame))
-        NSLog("UpdatedCursorSize: %@", NSStringFromCGRect(cursorView.frame))
     }
     
     func updateCursorPositionAnimated(animated: Bool) -> Void {
@@ -88,8 +85,8 @@ class HLBouncingTabBar: UITabBar, UITabBarControllerDelegate {
         
         var finalExpectedFrame: CGRect = CGRectMake(CGFloat(self.cursorIndex) * CGRectGetWidth(self.cursorView.frame), CGRectGetMinY(self.cursorView.frame), CGRectGetWidth(self.cursorView.frame), CGRectGetHeight(self.cursorView.frame))
         
-        if (animated)
-        {
+        if (animated) {
+            
             self.dynamicAnimator?.removeAllBehaviors()
             
             var offset: CGFloat = (CGRectGetMinX(finalExpectedFrame) > CGRectGetMinX(self.cursorView.frame)) ? CGRectGetWidth(self.cursorView.frame) + 1 : -1
@@ -107,8 +104,7 @@ class HLBouncingTabBar: UITabBar, UITabBarControllerDelegate {
             collisionBehavior.addBoundaryWithIdentifier("collision", fromPoint: CGPointMake(CGRectGetMinX(finalExpectedFrame) + offset, CGRectGetMinY(finalExpectedFrame)), toPoint: CGPointMake(CGRectGetMinX(finalExpectedFrame) + offset, CGRectGetMinX(finalExpectedFrame) + CGRectGetHeight(self.frame)))
             self.dynamicAnimator?.addBehavior(collisionBehavior)
         }
-        else
-        {
+        else {
             self.cursorView.frame = finalExpectedFrame
         }
     }
