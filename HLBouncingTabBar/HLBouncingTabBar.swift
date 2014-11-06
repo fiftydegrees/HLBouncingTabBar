@@ -12,6 +12,7 @@ class HLBouncingTabBar: UITabBar, UITabBarControllerDelegate {
     
     private var itemArray: [HLBouncingTabBarItem] = []
     
+    private var dynamicAnimator: UIDynamicAnimator?
     private var cursorView: UIView = UIView()
     private var cursorIndex: Int = 0
     
@@ -37,6 +38,7 @@ class HLBouncingTabBar: UITabBar, UITabBarControllerDelegate {
         self.cursorIndex = 0
         self.cursorView.backgroundColor = UIColor.redColor()
         self.cursorView.userInteractionEnabled = false
+        self.dynamicAnimator = UIDynamicAnimator(referenceView: self)
     }
     
     //MARK: - Items Management
@@ -84,11 +86,36 @@ class HLBouncingTabBar: UITabBar, UITabBarControllerDelegate {
     func updateCursorPositionAnimated(animated: Bool) -> Void {
         updateCursorSize()
         
-        UIView.animateWithDuration(animated ? 0.2 : 0.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
-            self.cursorView.frame = CGRectMake(CGFloat(self.cursorIndex) * CGRectGetWidth(self.cursorView.frame), CGRectGetMinY(self.cursorView.frame), CGRectGetWidth(self.cursorView.frame), CGRectGetHeight(self.cursorView.frame))
-        }, completion: nil)
+        var finalExpectedFrame: CGRect = CGRectMake(CGFloat(self.cursorIndex) * CGRectGetWidth(self.cursorView.frame), CGRectGetMinY(self.cursorView.frame), CGRectGetWidth(self.cursorView.frame), CGRectGetHeight(self.cursorView.frame))
+        
+        if (animated)
+        {
+            self.dynamicAnimator?.removeAllBehaviors()
+            
+            var offset: CGFloat = (CGRectGetMinX(finalExpectedFrame) > CGRectGetMinX(self.cursorView.frame)) ? CGRectGetWidth(self.cursorView.frame) + 1 : -1
+            
+            var gravityBehavior: UIGravityBehavior = UIGravityBehavior(items: [self.cursorView])
+            gravityBehavior.gravityDirection = CGVectorMake((CGRectGetMinX(finalExpectedFrame) > CGRectGetMinX(self.cursorView.frame)) ? 4.0 : -4.0, 0.0)
+            self.dynamicAnimator?.addBehavior(gravityBehavior)
+            
+            var elasticityBehavior: UIDynamicItemBehavior = UIDynamicItemBehavior(items: [self.cursorView])
+            elasticityBehavior.elasticity = 0.1
+            self.dynamicAnimator?.addBehavior(elasticityBehavior)
+            
+            var collisionBehavior: UICollisionBehavior = UICollisionBehavior(items: [self.cursorView])
+            collisionBehavior.translatesReferenceBoundsIntoBoundary = true
+            collisionBehavior.addBoundaryWithIdentifier("collision", fromPoint: CGPointMake(CGRectGetMinX(finalExpectedFrame) + offset, CGRectGetMinY(finalExpectedFrame)), toPoint: CGPointMake(CGRectGetMinX(finalExpectedFrame) + offset, CGRectGetMinX(finalExpectedFrame) + CGRectGetHeight(self.frame)))
+            self.dynamicAnimator?.addBehavior(collisionBehavior)
+        }
+        else
+        {
+            self.cursorView.frame = finalExpectedFrame
+        }
     }
     
-    //MARK: - UITabBarDelegate Implementation
+    //MARK: - UITabBarControllerDelegate Implementation
     
+    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+        setSelectedIndex(tabBarController.selectedIndex)
+    }
 }
