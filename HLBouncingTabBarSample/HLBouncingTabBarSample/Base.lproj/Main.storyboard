@@ -54,25 +54,6 @@
             </objects>
             <point key="canvasLocation" x="1137" y="1106"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="bKz-4t-CkO">
-            <objects>
-                <viewController id="iFK-dZ-95G" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="pkR-VE-UjN"/>
-                        <viewControllerLayoutGuide type="bottom" id="R4d-YL-ERW"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3Zy-NZ-K8y">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="DA3-Qd-jZH"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LAb-NX-V1U" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1137" y="1868"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Zxf-V8-Pwp">
             <objects>
@@ -82,11 +63,11 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="LtJ-Qw-m6G" customClass="HLBouncingTabBar" customModule="HLBouncingTabBarSample" customModuleProvider="target">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="G2N-Ji-jDH"/>
                         <segue destination="tBV-0a-0ov" kind="relationship" relationship="viewControllers" id="Tyo-fO-cxa"/>
-                        <segue destination="iFK-dZ-95G" kind="relationship" relationship="viewControllers" id="nLN-G6-KfQ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5vg-NI-irz" userLabel="First Responder" sceneMemberID="firstResponder"/>

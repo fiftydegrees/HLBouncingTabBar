@@ -8,19 +8,31 @@
 
 import UIKit
 
-class HLBouncingTabBarItem: NSObject {
+class HLBouncingTabBarItem: UIBarButtonItem {
    
-    private var backgroundColor: UIColor?
-    private var enableTintColor: UIColor?
-    private var disableTintColor: UIColor?
     private var icon: UIImage?
+    
+    private var backgroundColor: UIColor?
+    
+    private var selected: Bool = false {
+        didSet {
+            updateSelectedState()
+        }
+    }
     
     //MARK: - Initialization
     
-    init(backgroundColor: UIColor?, selectedTintColor enableTintColor: UIColor?, unselectedTintColor disableTintColor: UIColor?, andIcon icon: UIImage?) {
+    init(backgroundColor: UIColor?) {
+        super.init()
         self.backgroundColor = backgroundColor
-        self.enableTintColor = enableTintColor
-        self.disableTintColor = disableTintColor
-        self.icon = icon
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    //MARK: - UI Update
+    
+    func updateSelectedState() -> Void {
     }
 }

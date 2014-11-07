@@ -45,9 +45,6 @@ class HLBouncingTabBar: UITabBar, UITabBarControllerDelegate {
     
     func putItem(item: HLBouncingTabBarItem, atIndex index: Int) -> Void {
         
-        assert(index >= 0, "Index must be greater than or equal to 0")
-        assert(index < 5, "Index must be lower than or equal to 4")
-        
         itemArray.insert(item, atIndex: index)
         
         updateCursorPositionAnimated(false)
@@ -77,7 +74,8 @@ class HLBouncingTabBar: UITabBar, UITabBarControllerDelegate {
     //MARK: - Internal
     
     func updateCursorSize() -> Void {
-        cursorView.frame = CGRectMake(CGRectGetMinX(cursorView.frame), CGRectGetMinY(cursorView.frame), CGRectGetWidth(self.frame) / CGFloat(itemArray.count), CGRectGetHeight(self.frame))
+        var itemsCount: Int? = self.items?.count
+        cursorView.frame = CGRectMake(CGRectGetMinX(cursorView.frame), CGRectGetMinY(cursorView.frame), CGRectGetWidth(self.frame) / CGFloat(itemsCount!), CGRectGetHeight(self.frame))
     }
     
     func updateCursorPositionAnimated(animated: Bool) -> Void {
@@ -92,11 +90,11 @@ class HLBouncingTabBar: UITabBar, UITabBarControllerDelegate {
             var offset: CGFloat = (CGRectGetMinX(finalExpectedFrame) > CGRectGetMinX(self.cursorView.frame)) ? CGRectGetWidth(self.cursorView.frame) + 1 : -1
             
             var gravityBehavior: UIGravityBehavior = UIGravityBehavior(items: [self.cursorView])
-            gravityBehavior.gravityDirection = CGVectorMake((CGRectGetMinX(finalExpectedFrame) > CGRectGetMinX(self.cursorView.frame)) ? 4.0 : -4.0, 0.0)
+            gravityBehavior.gravityDirection = CGVectorMake((CGRectGetMinX(finalExpectedFrame) > CGRectGetMinX(self.cursorView.frame)) ? 5.0 : -5.0, 0.0)
             self.dynamicAnimator?.addBehavior(gravityBehavior)
             
             var elasticityBehavior: UIDynamicItemBehavior = UIDynamicItemBehavior(items: [self.cursorView])
-            elasticityBehavior.elasticity = 0.1
+            elasticityBehavior.elasticity = 0.4
             self.dynamicAnimator?.addBehavior(elasticityBehavior)
             
             var collisionBehavior: UICollisionBehavior = UICollisionBehavior(items: [self.cursorView])
@@ -107,6 +105,10 @@ class HLBouncingTabBar: UITabBar, UITabBarControllerDelegate {
         else {
             self.cursorView.frame = finalExpectedFrame
         }
+    }
+    
+    func updateTabBarUI() -> Void {
+        
     }
     
     //MARK: - UITabBarControllerDelegate Implementation
