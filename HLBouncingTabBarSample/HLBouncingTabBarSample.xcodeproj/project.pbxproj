@@ -7,18 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		675EBDA91A0C62C1005CF4A4 /* burger1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 675EBDA71A0C62C1005CF4A4 /* burger1@2x.png */; };
+		675EBDAA1A0C62C1005CF4A4 /* hot17@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 675EBDA81A0C62C1005CF4A4 /* hot17@2x.png */; };
 		67D76B7E1A0BF15B00F6CCA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D76B7D1A0BF15B00F6CCA5 /* AppDelegate.swift */; };
 		67D76B831A0BF15B00F6CCA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67D76B811A0BF15B00F6CCA5 /* Main.storyboard */; };
 		67D76B851A0BF15B00F6CCA5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67D76B841A0BF15B00F6CCA5 /* Images.xcassets */; };
 		67D76B881A0BF15B00F6CCA5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D76B861A0BF15B00F6CCA5 /* LaunchScreen.xib */; };
 		67D76BA41A0BF1C600F6CCA5 /* HLBouncingTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D76BA21A0BF1C600F6CCA5 /* HLBouncingTabBar.swift */; };
-		67D76BA51A0BF1C600F6CCA5 /* HLBouncingTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D76BA31A0BF1C600F6CCA5 /* HLBouncingTabBarItem.swift */; };
 		67D76BA71A0BF1DE00F6CCA5 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D76BA61A0BF1DE00F6CCA5 /* SampleViewController.swift */; };
-		67D76BAA1A0BF8E200F6CCA5 /* burger1.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D76BA81A0BF8E200F6CCA5 /* burger1.png */; };
-		67D76BAB1A0BF8E200F6CCA5 /* hot17.png in Resources */ = {isa = PBXBuildFile; fileRef = 67D76BA91A0BF8E200F6CCA5 /* hot17.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		675EBDA71A0C62C1005CF4A4 /* burger1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "burger1@2x.png"; sourceTree = "<group>"; };
+		675EBDA81A0C62C1005CF4A4 /* hot17@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hot17@2x.png"; sourceTree = "<group>"; };
 		67D76B781A0BF15B00F6CCA5 /* HLBouncingTabBarSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HLBouncingTabBarSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67D76B7C1A0BF15B00F6CCA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67D76B7D1A0BF15B00F6CCA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -26,10 +27,7 @@
 		67D76B841A0BF15B00F6CCA5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		67D76B871A0BF15B00F6CCA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		67D76BA21A0BF1C600F6CCA5 /* HLBouncingTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLBouncingTabBar.swift; sourceTree = "<group>"; };
-		67D76BA31A0BF1C600F6CCA5 /* HLBouncingTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLBouncingTabBarItem.swift; sourceTree = "<group>"; };
 		67D76BA61A0BF1DE00F6CCA5 /* SampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
-		67D76BA81A0BF8E200F6CCA5 /* burger1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = burger1.png; sourceTree = "<group>"; };
-		67D76BA91A0BF8E200F6CCA5 /* hot17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hot17.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,13 +61,13 @@
 			isa = PBXGroup;
 			children = (
 				67D76B7D1A0BF15B00F6CCA5 /* AppDelegate.swift */,
-				67D76BA11A0BF1C600F6CCA5 /* HLBouncingTabBar */,
 				67D76B811A0BF15B00F6CCA5 /* Main.storyboard */,
 				67D76BA61A0BF1DE00F6CCA5 /* SampleViewController.swift */,
+				67D76BA11A0BF1C600F6CCA5 /* HLBouncingTabBar */,
 				67D76B841A0BF15B00F6CCA5 /* Images.xcassets */,
+				675EBDA71A0C62C1005CF4A4 /* burger1@2x.png */,
+				675EBDA81A0C62C1005CF4A4 /* hot17@2x.png */,
 				67D76B861A0BF15B00F6CCA5 /* LaunchScreen.xib */,
-				67D76BA81A0BF8E200F6CCA5 /* burger1.png */,
-				67D76BA91A0BF8E200F6CCA5 /* hot17.png */,
 				67D76B7B1A0BF15B00F6CCA5 /* Supporting Files */,
 			);
 			path = HLBouncingTabBarSample;
@@ -87,7 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				67D76BA21A0BF1C600F6CCA5 /* HLBouncingTabBar.swift */,
-				67D76BA31A0BF1C600F6CCA5 /* HLBouncingTabBarItem.swift */,
 			);
 			name = HLBouncingTabBar;
 			path = ../../HLBouncingTabBar;
@@ -152,9 +149,9 @@
 			files = (
 				67D76B831A0BF15B00F6CCA5 /* Main.storyboard in Resources */,
 				67D76B881A0BF15B00F6CCA5 /* LaunchScreen.xib in Resources */,
-				67D76BAA1A0BF8E200F6CCA5 /* burger1.png in Resources */,
+				675EBDAA1A0C62C1005CF4A4 /* hot17@2x.png in Resources */,
 				67D76B851A0BF15B00F6CCA5 /* Images.xcassets in Resources */,
-				67D76BAB1A0BF8E200F6CCA5 /* hot17.png in Resources */,
+				675EBDA91A0C62C1005CF4A4 /* burger1@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,7 +162,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67D76BA51A0BF1C600F6CCA5 /* HLBouncingTabBarItem.swift in Sources */,
 				67D76B7E1A0BF15B00F6CCA5 /* AppDelegate.swift in Sources */,
 				67D76BA71A0BF1DE00F6CCA5 /* SampleViewController.swift in Sources */,
 				67D76BA41A0BF1C600F6CCA5 /* HLBouncingTabBar.swift in Sources */,
@@ -211,7 +207,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -231,6 +227,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "94fc703b-7b7b-4d84-b5e7-b986b5ffc200";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -254,7 +251,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -267,6 +264,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "94fc703b-7b7b-4d84-b5e7-b986b5ffc200";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -314,6 +312,7 @@
 				67D76B991A0BF15C00F6CCA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -13,8 +13,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        var tabBarController: UITabBarController? = self.window?.rootViewController? as UITabBarController?
+        tabBarController?.delegate = tabBarController?.tabBar as HLBouncingTabBar
         
         return true
     }

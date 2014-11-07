@@ -10,7 +10,11 @@ import UIKit
 
 class HLBouncingTabBar: UITabBar, UITabBarControllerDelegate {
     
-    private var itemArray: [HLBouncingTabBarItem] = []
+    var cursorBackgroundColor: UIColor = UIColor.clearColor() {
+        didSet {
+            self.cursorView.backgroundColor = cursorBackgroundColor
+        }
+    }
     
     private var dynamicAnimator: UIDynamicAnimator?
     private var cursorView: UIView = UIView()
@@ -35,31 +39,11 @@ class HLBouncingTabBar: UITabBar, UITabBarControllerDelegate {
     func setupTabBar() -> Void {
         self.translucent = false
         self.addSubview(cursorView)
+        self.sendSubviewToBack(cursorView)
         self.cursorIndex = 0
-        self.cursorView.backgroundColor = UIColor.redColor()
+        self.cursorView.backgroundColor = self.cursorBackgroundColor
         self.cursorView.userInteractionEnabled = false
         self.dynamicAnimator = UIDynamicAnimator(referenceView: self)
-    }
-    
-    //MARK: - Items Management
-    
-    func putItem(item: HLBouncingTabBarItem, atIndex index: Int) -> Void {
-        
-        assert(index >= 0, "Index must be greater than or equal to 0")
-        assert(index < 5, "Index must be lower than or equal to 4")
-        
-        itemArray.insert(item, atIndex: index)
-        
-        updateCursorPositionAnimated(false)
-    }
-    
-    func removeItemAtIndex(index: Int) -> Void {
-        
-        assert(index >= 0, "Index must be greater than or equal to 0")
-        assert(index < 5, "Index must be lower than or equal to 4")
-        
-        itemArray.removeAtIndex(index)
-        
         updateCursorPositionAnimated(false)
     }
     
@@ -70,33 +54,27 @@ class HLBouncingTabBar: UITabBar, UITabBarControllerDelegate {
         updateCursorPositionAnimated(true)
     }
     
-    func test() -> Void {
-        setSelectedIndex(1)
-    }
-    
     //MARK: - Internal
     
     func updateCursorSize() -> Void {
-        cursorView.frame = CGRectMake(CGRectGetMinX(cursorView.frame), CGRectGetMinY(cursorView.frame), CGRectGetWidth(self.frame) / CGFloat(itemArray.count), CGRectGetHeight(self.frame))
+        var itemsCount: Int? = self.items?.count
+        self.cursorView.frame = CGRectMake(CGRectGetMinX(cursorView.frame), CGRectGetMinY(cursorView.frame), CGRectGetWidth(UIScreen.mainScreen().bounds) / CGFloat(itemsCount!), CGRectGetHeight(self.frame))
     }
     
     func updateCursorPositionAnimated(animated: Bool) -> Void {
         updateCursorSize()
-        
         var finalExpectedFrame: CGRect = CGRectMake(CGFloat(self.cursorIndex) * CGRectGetWidth(self.cursorView.frame), CGRectGetMinY(self.cursorView.frame), CGRectGetWidth(self.cursorView.frame), CGRectGetHeight(self.cursorView.frame))
-        
         if (animated) {
-            
             self.dynamicAnimator?.removeAllBehaviors()
             
             var offset: CGFloat = (CGRectGetMinX(finalExpectedFrame) > CGRectGetMinX(self.cursorView.frame)) ? CGRectGetWidth(self.cursorView.frame) + 1 : -1
             
             var gravityBehavior: UIGravityBehavior = UIGravityBehavior(items: [self.cursorView])
-            gravityBehavior.gravityDirection = CGVectorMake((CGRectGetMinX(finalExpectedFrame) > CGRectGetMinX(self.cursorView.frame)) ? 4.0 : -4.0, 0.0)
+            gravityBehavior.gravityDirection = CGVectorMake((CGRectGetMinX(finalExpectedFrame) > CGRectGetMinX(self.cursorView.frame)) ? 8.0 : -8.0, 0.0)
             self.dynamicAnimator?.addBehavior(gravityBehavior)
             
             var elasticityBehavior: UIDynamicItemBehavior = UIDynamicItemBehavior(items: [self.cursorView])
-            elasticityBehavior.elasticity = 0.1
+            elasticityBehavior.elasticity = 0.25
             self.dynamicAnimator?.addBehavior(elasticityBehavior)
             
             var collisionBehavior: UICollisionBehavior = UICollisionBehavior(items: [self.cursorView])
