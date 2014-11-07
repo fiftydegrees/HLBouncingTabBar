@@ -13,12 +13,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        var tabBar: HLBouncingTabBar = self.tabBarController?.tabBar as HLBouncingTabBar
+        tabBar.cursorBackgroundColor = UIColor.whiteColor()
     }
     
     @IBAction func didTapTest(sender: AnyObject) {
-        
-        var tabBar: HLBouncingTabBar = self.tabBarController?.tabBar as HLBouncingTabBar
-        tabBar.test()
     }
 }
 

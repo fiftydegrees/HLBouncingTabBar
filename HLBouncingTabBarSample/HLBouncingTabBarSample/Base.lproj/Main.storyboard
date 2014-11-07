@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--El Burger-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HLBouncingTabBarSample" customModuleProvider="target" sceneMemberID="viewController">
@@ -29,13 +29,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="hMl-ym-WiQ"/>
+                    <tabBarItem key="tabBarItem" title="El Burger" image="burger1.png" id="hMl-ym-WiQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1137" y="366"/>
         </scene>
-        <!--Item-->
+        <!--Hotty-->
         <scene sceneID="4Kf-49-JYe">
             <objects>
                 <viewController id="tBV-0a-0ov" sceneMemberID="viewController">
@@ -48,11 +48,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="dEt-Xe-FLr"/>
+                    <tabBarItem key="tabBarItem" title="Hotty" image="hot17.png" id="dEt-Xe-FLr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5IC-No-mG1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1137" y="1106"/>
+            <point key="canvasLocation" x="1137" y="1115"/>
+        </scene>
+        <!--Burger Bis-->
+        <scene sceneID="IVG-r8-XnQ">
+            <objects>
+                <viewController id="XNa-f4-GlD" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="q4b-sd-JHs"/>
+                        <viewControllerLayoutGuide type="bottom" id="6MQ-Bp-UAP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YX4-PJ-LlP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Burger Bis" image="burger1.png" id="gmD-zL-NpG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D5A-Aw-Qc5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1137" y="1849"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Zxf-V8-Pwp">
@@ -63,11 +82,14 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="LtJ-Qw-m6G" customClass="HLBouncingTabBar" customModule="HLBouncingTabBarSample" customModuleProvider="target">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.96470588239999999" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.80392156859999997" green="0.77338610200000002" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="G2N-Ji-jDH"/>
                         <segue destination="tBV-0a-0ov" kind="relationship" relationship="viewControllers" id="Tyo-fO-cxa"/>
+                        <segue destination="XNa-f4-GlD" kind="relationship" relationship="viewControllers" id="a75-9d-RSJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5vg-NI-irz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -75,4 +97,8 @@
             <point key="canvasLocation" x="325" y="366"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="burger1.png" width="32" height="32"/>
+        <image name="hot17.png" width="32" height="33"/>
+    </resources>
 </document>
